@@ -8,7 +8,7 @@
     "coverage": "jest --forceExit --coverage --coverageReporters='text-summary'",
     "setup-db": "node ./config/setup-db.js",
     "dev": "nodemon -L index.js",
-    "start": "node -L index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
