@@ -14,7 +14,7 @@ export default function UserProfile() {
     async function fetchUser() {
       const userId = localStorage.getItem('user_id');
 
-      const response = await fetch(`http://localhost:8080/users/username/single/${userId}`, {
+      const response = await fetch(`https://learnify-6tx5.onrender.com/users/username/single/${userId}`, {
         
       });
       const data = await response.json();

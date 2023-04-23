@@ -45,7 +45,7 @@ export default function Dashboard() {
 
   const getUser = async () => {
     const response = await fetch(
-      `http://localhost:8080/users/username/${localStorage.getItem("user_id")}`
+      `https://learnify-6tx5.onrender.com/users/username/${localStorage.getItem("user_id")}`
     );
 
     setUsername(await response.text());
@@ -53,7 +53,7 @@ export default function Dashboard() {
 
   const getFavoritedCards = async () => {
     const response = await fetch(
-      `http://localhost:8080/flashcards/favorite/user/${localStorage.getItem(
+      `https://learnify-6tx5.onrender.com/flashcards/favorite/user/${localStorage.getItem(
         "user_id"
       )}`
     );
@@ -66,7 +66,7 @@ export default function Dashboard() {
   const checkFavorites = async () => {
     const userId = localStorage.getItem("user_id");
     const response = await fetch(
-      `http://localhost:8080/flashcards/favorite/user/${userId}/`
+      `https://learnify-6tx5.onrender.com/flashcards/favorite/user/${userId}/`
     );
 
     const data = await response.json();
@@ -82,7 +82,7 @@ export default function Dashboard() {
     const userId = localStorage.getItem("user_id");
 
     const response = await fetch(
-      `http://localhost:8080/flashcards/favorite/user/${userId}/card/${cardId}`,
+      `https://learnify-6tx5.onrender.com/flashcards/favorite/user/${userId}/card/${cardId}`,
       {
         method: favourites.includes(cardId) ? "DELETE" : "POST",
         headers: {
@@ -110,7 +110,7 @@ export default function Dashboard() {
     const userId = localStorage.getItem("user_id");
 
     const response = await fetch(
-      `http://localhost:8080/flashcards/user/${userId}`
+      `https://learnify-6tx5.onrender.com/flashcards/user/${userId}`
     );
 
     const data = await response.json();

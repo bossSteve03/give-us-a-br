@@ -46,7 +46,7 @@
   height: 100%;
   backface-visibility: hidden;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   gap: 20px;

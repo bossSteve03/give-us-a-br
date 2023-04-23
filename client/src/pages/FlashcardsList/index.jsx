@@ -48,7 +48,7 @@ export default function FlashcardsList() {
 
   const getData = async () => {
     const response = await fetch(
-      `http://localhost:8080/flashcards/${category}`
+      `https://learnify-6tx5.onrender.com/flashcards/${category}`
     );
 
     const data = await response.json();
@@ -68,7 +68,7 @@ export default function FlashcardsList() {
     const userId = localStorage.getItem("user_id");
 
     const response = await fetch(
-      `http://localhost:8080/flashcards/favorite/user/${userId}/card/${cardId}`,
+      `https://learnify-6tx5.onrender.com/flashcards/favorite/user/${userId}/card/${cardId}`,
       {
         method: favourites.includes(cardId) ? "DELETE" : "POST",
         headers: {
@@ -95,7 +95,7 @@ export default function FlashcardsList() {
   const checkFavorites = async () => {
     const userId = localStorage.getItem("user_id");
     const response = await fetch(
-      `http://localhost:8080/flashcards/favorite/user/${userId}/`
+      `https://learnify-6tx5.onrender.com/flashcards/favorite/user/${userId}/`
     );
 
     const data = await response.json();

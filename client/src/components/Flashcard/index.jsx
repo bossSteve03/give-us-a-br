@@ -1,8 +1,25 @@
 import styles from "./index.module.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 
 export default function Flashcard({f, getColours, handleFlip, handleFavorites, flippedCards, favourites}) {
+
+  async function destroyFlashcard(e, cardId) {
+    e.stopPropagation();
+    const options = {
+      method: "DELETE"
+    };
+
+    const res = await fetch(`https://learnify-6tx5.onrender.com/flashcards/${cardId}`, options);
+      
+    if (res.ok) {
+      getData()
+    } else {
+      console.log("Card failed to delete.");
+    }
+  }
+
   return (
-    
     <div
       key={f.card_id}
       onClick={() => handleFlip(f.card_id)}
@@ -29,6 +46,7 @@ export default function Flashcard({f, getColours, handleFlip, handleFavorites, f
       <div className={styles["front"]}>
         <h1 className={styles["flashcard-title"]}>{f.collection}</h1>
         <h2 className={styles["flashcard-question"]}>{f.question}</h2>
+        <button className={styles["delete-btn"]} onClick={destroyFlashcard}><FontAwesomeIcon icon={faTrashCan} /></button>
       </div>
       <div className={styles["back"]}>
         <h2 className={styles["flashcard-answer"]}>{f.fact}</h2>

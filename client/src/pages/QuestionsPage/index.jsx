@@ -15,7 +15,7 @@ export default function QuestionsPage() {
 
   async function getQuestions() {
     const category = subject ? subject.toLowerCase() : undefined
-    const response = await fetch(`http://localhost:8080/quiz/${category}`)
+    const response = await fetch(`https://learnify-6tx5.onrender.com/quiz/${category}`)
     const data = await response.json()
  
     if (Array.isArray(data) && data.length > 0) {
@@ -39,7 +39,7 @@ export default function QuestionsPage() {
         score_out_of: score_out_of
       })
     }
-    const response = await fetch(`http://localhost:8080/users/score/${id}`, options)
+    const response = await fetch(`https://learnify-6tx5.onrender.com/users/score/${id}`, options)
     await response.json()
   }
 
